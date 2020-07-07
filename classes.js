@@ -15,34 +15,34 @@ class Traveler {
     constructor (name, HP){
         this.name = name
         this.food = 1
-        this.hitPoints = HP
-        this.isHungry = false
+        //this.hitPoints = HP
+        //this.isHungry = false
         this.isHealthy = true
     }
     hunt(){
-        if(Math.round(Math.random()*100) > 70){
+        /*  if(Math.round(Math.random()*100) > 70){
             this.isHungry = true
             alert(this.name + " is hungry!")
         }
-        this.damage()
+        this.damage()  */
         return this.food += 2
     }
     eat(){
-        if(this.isHungry === false){
+        /* if(this.isHungry === false){
             return "No need to eat."
-        } else if(this.food <= 0){
+        } else */if(this.food <= 0){
             this.food = 0
             this.isHealthy = false
-            this.damage()
-        } else {
+            //this.damage()
+        } else { 
             this.food--
             this.isHealthy = true
-            this.isHungry = false
-            this.recover()
+            //this.isHungry = false
+            //this.recover()
         }
-        return this.name + ": " + this.isHungry
+        return this.name + " has eaten."      //this.name + ": " + this.isHungry
     }
-    damage (){
+    /* damage (){
         if(this.isHealthy === false){
             this.hitPoints--
             alert("You are slowly losing life! Eat something, quick!")
@@ -52,11 +52,10 @@ class Traveler {
         if(this.hitPoints < 10){
             this.hitPoints++
         }
-    }
+    } */
 }
 class Wagon {
-    constructor(name, capacity){
-        this.name = name
+    constructor(capacity){
         this.capacity = capacity
         this.passengers = []
     }

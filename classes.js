@@ -1,58 +1,57 @@
-/* class Dog {
-    constructor (name, breed) {
-        this.name = name
-        this.breed = breed
-        this.isGoodBoy = Boolean("of course")
-    }
-    sit () {
-        // stuff
-    }
-    fetch () {
-        // stuff
-    }
-} */
 class Traveler {
-    constructor (name, HP){
+    constructor (name){
         this.name = name
         this.food = 1
-        //this.hitPoints = HP
-        //this.isHungry = false
         this.isHealthy = true
     }
     hunt(){
-        /*  if(Math.round(Math.random()*100) > 70){
-            this.isHungry = true
-            alert(this.name + " is hungry!")
-        }
-        this.damage()  */
         return this.food += 2
     }
     eat(){
-        /* if(this.isHungry === false){
-            return "No need to eat."
-        } else */if(this.food <= 0){
+        if(this.food <= 0){
             this.food = 0
             this.isHealthy = false
-            //this.damage()
         } else { 
             this.food--
             this.isHealthy = true
-            //this.isHungry = false
-            //this.recover()
         }
-        return this.name + " has eaten."      //this.name + ": " + this.isHungry
+        return this.name + " has eaten."
     }
-    /* damage (){
-        if(this.isHealthy === false){
-            this.hitPoints--
-            alert("You are slowly losing life! Eat something, quick!")
+}
+
+class Doctor extends Traveler{
+    constructor (name, food, isHealthy){
+        super(name, food, isHealthy)
+    }
+    heal(traveler){
+        return traveler.isHealthy = true
+    }
+}
+class Hunter extends Traveler{
+    constructor(name, isHealthy, food = 2){
+        super(name, isHealthy)
+        this.food = food
+    }
+    hunt(){
+        return this.food += 5
+    }
+    eat(){
+        if(this.food < 2){
+            this.food = 0
+            this.isHealthy = false
+        } else {
+        this.food -= 2
+        }
+        return this.food
+    }
+    giveFood(traveler, numOfFoodUnits){
+        if(this.food - numOfFoodUnits > 0){
+            this.food -= numOfFoodUnits
+            traveler.food += numOfFoodUnits
+        } else {
+            return "Not enough food to transfer."
         }
     }
-    recover (){
-        if(this.hitPoints < 10){
-            this.hitPoints++
-        }
-    } */
 }
 class Wagon {
     constructor(capacity){
